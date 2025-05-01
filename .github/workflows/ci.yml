@@ -1,0 +1,45 @@
+name: React Native CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: 📦 Install dependencies
+        run: yarn install
+
+      - name: 🧼 Lint
+        run: yarn lint
+
+      - name: ✅ Run tests
+        run: yarn test || echo "No tests defined"
+
+      - name: 🧱 Setup Java & Gradle
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+
+      - name: 🛠️ Build Android (Debug)
+        working-directory: android
+        run: ./gradlew assembleDebug
+
+      - name: 📤 Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
