@@ -6,7 +6,8 @@ import {
   SafeAreaFrameContext,
   SafeAreaView,
 } from 'react-native-safe-area-context';
-import {Child} from './Child';
+import {Child} from './testing/Child';
+import Child2 from './testing/Child2';
 
 export const TestScreen = () => {
   const [task, setTask] = useState<string>('');
@@ -28,10 +29,14 @@ export const TestScreen = () => {
     console.log('callvack');
   }, []); // no dependency function stays same
 
+  const child2Click = useCallback(() => {
+    console.log('Hello');
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <View>
         <Child label="Ran" onclick={handleUseCallback}></Child>
+        <Child2 label="TEST" onclick={child2Click}></Child2>
         <Text style={styles.text}>Hello worls</Text>
         <TextInput
           style={styles.input}

@@ -40,7 +40,7 @@ const RegisterScreen = () => {
       navigation.navigate('Login');
     } catch (error) {
       console.error('Registration failed:', error);
-      showSnackbar('Registration failed. Try another email.', 'error');
+      showSnackbar('Something went wrong.', 'error');
     }
   };
 

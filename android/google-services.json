@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "516436196794",
+    "project_id": "smartmeetingapp-e904f",
+    "storage_bucket": "smartmeetingapp-e904f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516436196794:android:a81880416581043e647183",
+        "android_client_info": {
+          "package_name": "com.smartmeetingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiHCIGbs8jCSsd5wUrXb7cpcjYVaTVfwg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
